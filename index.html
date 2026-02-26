@@ -7,7 +7,6 @@
     <style>
         :root { --paper-bg: #f4f1ea; --ink: #1a1a1a; --accent: #d40000; --correct: #28a745; --wrong: #dc3545; }
         
-        /* Grund-Layout */
         body { font-family: 'Arial', sans-serif; background-color: var(--paper-bg); color: var(--ink); margin: 0; padding: 10px; line-height: 1.6; }
         .paper-container { max-width: 1200px; margin: 0 auto; border: 1px solid #000; background: #fff; padding: 20px; box-shadow: 5px 5px 25px rgba(0,0,0,0.2); }
         
@@ -16,11 +15,9 @@
         
         .sub-header { border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); padding: 8px; margin: 10px 0; font-weight: bold; display: flex; justify-content: space-between; font-size: 0.9rem; flex-wrap: wrap; gap: 10px; }
 
-        /* Mobile First: Erst alles untereinander */
         .main-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .news-columns { display: grid; grid-template-columns: 1fr; gap: 20px; }
         
-        /* Desktop-Ansicht (ab 800px Breite) */
         @media (min-width: 800px) {
             body { padding: 20px; }
             .paper-container { padding: 40px; }
@@ -43,9 +40,7 @@
         .side-bar h4 { border-bottom: 2px solid var(--ink); margin: 0 0 20px 0; font-size: 1.2rem; text-transform: uppercase; }
 
         .date-badge { background: var(--ink); color: white; padding: 3px 8px; font-size: 0.8rem; margin-right: 8px; font-weight: bold; }
-        .source-tag { font-size: 0.75rem; color: #666; font-weight: bold; font-style: italic; }
 
-        /* Quiz-Sektion */
         #quiz-section { margin-top: 40px; padding: clamp(15px, 5vw, 35px); border: 5px solid var(--ink); background: #fcfcfc; }
         .option-btn { display: block; width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #ccc; background: white; cursor: pointer; text-align: left; font-size: 1.1rem; border-radius: 4px; }
         .btn-correct { background: var(--correct) !important; color: white !important; font-weight: bold; border-color: #1e7e34 !important; }
@@ -61,7 +56,7 @@
     <header>
         <h1>Die Tagespolitik</h1>
         <div class="sub-header">
-            <span>Freitag, 27. Februar 2026</span>
+            <span>Donnerstag, 26. Februar 2026</span>
             <span>Umfassende Wochenanalyse</span>
             <span>Ausgabe Bonn</span>
         </div>
@@ -80,67 +75,73 @@
 
             <div class="col">
                 <article>
+                    <h2><span class="date-badge">26. FEB</span> MEXIKO: GEWALTWELLE</h2>
+                    <h3>Wahlkampf im Visier des "Nueva Generación" Kartells</h3>
+                    <p>In Mexiko wird der Wahlkampf zunehmend blutiger. Sicherheitsberichten zufolge versucht insbesondere das mächtige <b>Cártel Jalisco Nueva Generación (CJNG)</b>, Einfluss auf die kommenden Wahlen zu nehmen. Durch gezielte Einschüchterung und Gewalt gegen Lokalpolitiker wollen die Kartelle sicherstellen, dass ihnen wohlgesonnene Kandidaten die Macht in strategisch wichtigen Regionen übernehmen. Die Regierung in Mexiko-Stadt steht unter massivem Druck, die demokratischen Prozesse zu schützen.</p>
+                </article>
+
+                <article>
                     <h2><span class="date-badge">19. FEB</span> SKANDAL IN ENGLAND</h2>
                     <h3>Ehemaliger Prinz Andrew festgenommen</h3>
-                    <p>Der ehemalige Prinz Andrew (Andrew Mountbatten-Windsor) wurde in London festgenommen. Die Ermittler werfen ihm vor, über Jahre hinweg sensible Daten an Jeffrey Epstein übermittelt zu haben. Die Polizei in England spricht von einem komplexen Netzwerk. Der Fall sorgt weltweit für Aufsehen, da er bis in höchste gesellschaftliche Kreise reicht.</p>
-                    <span class="source-tag">Quelle: SPIEGEL / ZDF</span>
+                    <p>Der ehemalige Prinz Andrew wurde in London festgenommen. Die Ermittler werfen ihm vor, über Jahre hinweg sensible Daten an Jeffrey Epstein übermittelt zu haben. Der Fall sorgt weltweit für Aufsehen.</p>
                 </article>
 
                 <article>
                     <h2><span class="date-badge">20. FEB</span> CDU-PARTEITAG</h2>
                     <h3>Merz mit starkem Ergebnis bestätigt</h3>
-                    <p>Friedrich Merz bleibt der starke Mann der CDU. Auf dem Parteitag in Stuttgart erhielt er 91,17 % der Stimmen. In seiner Rede betonte er, dass die CDU die Partei der wirtschaftlichen Vernunft sei. Er erneuerte sein Versprechen, dass es unter seiner Führung keine politische Zusammenarbeit mit der AfD geben wird.</p>
-                    <span class="source-tag">Quelle: Reuters</span>
+                    <p>Friedrich Merz bleibt der starke Mann der CDU. Auf dem Parteitag in Stuttgart erhielt er 91,17 % der Stimmen und schloss eine Koalition mit der AfD erneut aus.</p>
                 </article>
 
                 <article>
-                    <h2><span class="date-badge">21. FEB</span> PROGRAMM-ABSCHLUSS</h2>
-                    <h3>CDU fordert Kernkraft-Rückkehr</h3>
-                    <p>Zum Abschluss des Parteitags verabschiedete die CDU ihr neues Grundsatzprogramm. Ein zentraler Punkt ist die Forderung nach einer Rückkehr zur Kernkraft, um die Energiepreise für die deutsche Industrie stabil zu halten. Zudem soll die Einwanderung nach Deutschland strenger kontrolliert werden.</p>
+                    <h2><span class="date-badge">21. FEB</span> GRUNDSATZPROGRAMM</h2>
+                    <h3>CDU setzt auf Kernenergie-Prüfung</h3>
+                    <p>Die CDU will Kernenergie wieder prüfen lassen, um die Energiepreise stabil zu halten. Zudem fordert das neue Programm strengere Regeln bei der Einwanderung.</p>
                 </article>
             </div>
 
             <div class="col">
                 <article>
-                    <h2><span class="date-badge">23. FEB</span> LOKALNACHRICHTEN BONN</h2>
-                    <h3>Rhein-Brücke: Bauarbeiten genehmigt</h3>
-                    <p>Die lang geplante neue Rhein-Brücke in Bonn hat die finale Genehmigung erhalten. Das Projekt soll den täglichen Stau auf den Autobahnen rund um die Stadt drastisch reduzieren. Kritisch bleibt jedoch die Lage am Rheinufer: Umweltschützer kündigten bereits Widerstand an, da für den Bau zahlreiche alte Bäume gefällt werden müssen.</p>
-                    <span class="source-tag">Quelle: General-Anzeiger</span>
+                    <h2><span class="date-badge">22. FEB</span> MEINUNGSFORSCHUNG</h2>
+                    <h3>Sonntagsfrage: Union bei 32 %</h3>
+                    <p>Aktuelle Umfragen zeigen die Union stabil vorn. Die Wähler schätzen laut Experten die klare Abgrenzung der CDU nach rechts sowie das geschärfte wirtschaftspolitische Profil.</p>
+                </article>
+
+                <article>
+                    <h2><span class="date-badge">23. FEB</span> EU-PARLAMENT</h2>
+                    <h3>Verschärfte Regeln für den Klimaschutz</h3>
+                    <p>Das Europäische Parlament hat neue Regeln beschlossen, um den CO2-Ausstoß drastisch zu senken. Ziel ist die Unabhängigkeit von fossilen Brennstoffen bis 2045.</p>
                 </article>
 
                 <article>
                     <h2><span class="date-badge">24. FEB</span> NATO-VERTEIDIGUNG</h2>
                     <h3>Großmanöver in Deutschland gestartet</h3>
-                    <p>Elf NATO-Partner trainieren zurzeit gemeinsam auf deutschem Boden. Bei der Übung geht es vor allem um Logistik: Wie schnell können Panzer und schweres Gerät an die europäische Ostgrenze verlegt werden? Das Manöver gilt als Signal der Verteidigungsbereitschaft.</p>
-                    <span class="source-tag">Quelle: Bundeswehr</span>
+                    <p>Elf NATO-Partner trainieren die schnelle Verlegung von Panzern und Material an die Ostgrenze als Signal der Verteidigungsbereitschaft.</p>
                 </article>
 
                 <article>
                     <h2><span class="date-badge">26. FEB</span> WELTHANDEL</h2>
                     <h3>Chip-Krise stoppt Autoproduktion</h3>
-                    <p>Ein eskalierender Handelsstreit zwischen den USA und China führt zu einem akuten Mangel an Computer-Chips. Da diese Bauteile in modernen Fahrzeugen unverzichtbar sind, mussten erste Fabriken in Deutschland ihre Fließbänder stoppen.</p>
-                    <span class="source-tag">Quelle: Euronews</span>
+                    <p>Wegen eines Handelsstreits zwischen den USA und China fehlen Computer-Chips. In Deutschland stehen in ersten Werken die Fließbänder still.</p>
                 </article>
 
                 <article>
                     <h2><span class="date-badge">27. FEB</span> WETTER-REKORD</h2>
                     <h3>Frühlingserwachen bei 18 Grad</h3>
-                    <p>Ganz Deutschland erlebt heute einen ungewöhnlich warmen Wintertag. Dank einer milden Luftströmung aus dem Süden klettern die Temperaturen auf bis zu 18 Grad. In den Parks in Bonn genießen zahlreiche Menschen die Sonne.</p>
-                    <span class="source-tag">Quelle: Wetter.com</span>
+                    <p>Ein ungewöhnlich warmer Wintertag lockt die Menschen nach draußen. In Bonn werden heute bis zu 18 Grad erreicht.</p>
                 </article>
             </div>
         </div>
 
         <div class="side-bar">
             <h4>☀️ Wetter in Bonn</h4>
-            <p>Ein fantastischer Tag wartet auf <b>dich</b>! Nutze die Sonnenstunden am Rhein.</p>
+            <p>Ein fantastischer Tag wartet auf <b>dich</b>!</p>
             <p>🌡️ <b>8°C bis 18°C</b></p>
             <p>💨 Wind: Fast windstill.</p>
         </div>
     </div>
 
     <section id="quiz-section">
-        <h3 style="text-align:center;">✙ DAS GROSSE WOCHEN-QUIZ (15 FRAGEN) ✙</h3>
+        <h3 style="text-align:center;">✙ DAS GROSSE WOCHEN-QUIZ ✙</h3>
         <div id="quiz-start">
             <button class="option-btn" onclick="startQuiz()" style="text-align:center; font-weight:bold; background:var(--ink); color:white;">JETZT QUIZ STARTEN</button>
         </div>
@@ -161,71 +162,84 @@
 </div>
 
 <script>
-    const questions = [
-        { q: "Was wird dem ehemaligen Prinz Andrew (19. Feb) vorgeworfen?", a: ["Steuerhinterziehung", "Datenweitergabe an Jeffrey Epstein", "Diebstahl"], correct: 1 },
-        { q: "Wo wurde Friedrich Merz am 20. Februar wiedergewählt?", a: ["Bonn", "Berlin", "Stuttgart"], correct: 2 },
-        { q: "Wie viel Prozent erhielt Merz bei seiner Wahl?", a: ["75,00 %", "91,17 %", "99,00 %"], correct: 1 },
-        { q: "Was fordert die CDU im Programm vom 21. Feb?", a: ["Ausstieg aus Windkraft", "Rückkehr zur Kernkraft", "Bau von Kohlekraftwerken"], correct: 1 },
-        { q: "Was soll die neue Rhein-Brücke in Bonn bewirken?", a: ["Mehr Schiffe", "Stau-Reduzierung", "Schutz der Fische"], correct: 1 },
-        { q: "Warum gibt es Widerstand gegen die Brücke?", a: ["Wegen Lärm", "Wegen Fällung von Uferbäumen", "Wegen der Kosten"], correct: 1 },
-        { q: "Wie viele Partner nehmen am NATO-Manöver teil?", a: ["5 Länder", "11 Länder", "30 Länder"], correct: 1 },
-        { q: "Was wird beim NATO-Manöver hauptsächlich geübt?", a: ["Truppenverlegung nach Osten", "Häuserkampf", "Seeschlachten"], correct: 0 },
-        { q: "Warum finden aktuell Gespräche in Genf statt?", a: ["Wegen Klima", "Wegen Iran-Atomprogramm", "Wegen Öl-Preisen"], correct: 1 },
-        { q: "Welches Ziel verfolgt der Iran in Genf?", a: ["Mehr Waffen", "Ende der Sanktionen", "Eintritt in die EU"], correct: 1 },
-        { q: "Was sind 'Sanktionen'?", a: ["Wirtschaftliche Strafen", "Orden", "Verträge"], correct: 0 },
-        { q: "Was fehlt aktuell (26. Feb) im Welthandel?", a: ["Stahl", "Computer-Chips", "Reifen"], correct: 1 },
-        { q: "Zwischen welchen Ländern eskaliert der Handelsstreit?", a: ["Russland/USA", "USA/China", "Deutschland/Polen"], correct: 1 },
-        { q: "Wie warm wird es heute (27. Feb) in Bonn?", a: ["10 Grad", "18 Grad", "25 Grad"], correct: 1 },
-        { q: "Was ist Teheran?", a: ["Eine Insel", "Hauptstadt des Iran", "Ein Fluss"], correct: 1 }
+    const originalQuestions = [
+        { q: "Was wird dem ehemaligen Prinz Andrew vorgeworfen?", a: ["Steuerbetrug", "Datenweitergabe an Jeffrey Epstein", "Spionage"], correct: "Datenweitergabe an Jeffrey Epstein" },
+        { q: "Welches Ergebnis erzielte Friedrich Merz am 20. Feb?", a: ["75,00 %", "91,17 %", "99,00 %"], correct: "91,17 %" },
+        { q: "Was will die CDU laut Programm vom 21. Feb prüfen?", a: ["Kernenergie", "Tempolimit", "Kohleausstieg"], correct: "Kernenergie" },
+        { q: "Wo steht die Union laut Sonntagsfrage (22. Feb)?", a: ["25 %", "32 %", "40 %"], correct: "32 %" },
+        { q: "Was beschloss das EU-Parlament am 23. Feb?", a: ["Verschärfte Klimaschutz-Regeln", "EU-weite MwSt-Senkung", "Einführung des digitalen Euro"], correct: "Verschärfte Klimaschutz-Regeln" },
+        { q: "Wie viele Partner nehmen am NATO-Manöver teil?", a: ["5 Länder", "11 Länder", "30 Länder"], correct: "11 Länder" },
+        { q: "Welches Kartell bedroht den Wahlkampf in Mexiko?", a: ["Sinaloa", "Nueva Generación (CJNG)", "Gulf Cartel"], correct: "Nueva Generación (CJNG)" },
+        { q: "Warum stehen am 26. Feb Autofabriken still?", a: ["Streik", "Chip-Mangel", "Rohstoffmangel"], correct: "Chip-Mangel" },
+        { q: "In welcher Stadt finden die Atom-Verhandlungen statt?", a: ["Wien", "Genf", "Zürich"], correct: "Genf" },
+        { q: "Was leiden die Menschen im Iran unter den Sanktionen?", a: ["Wassermangel", "Explodierende Inflation", "Internetverbot"], correct: "Explodierende Inflation" },
+        { q: "Wo fand der CDU-Parteitag statt?", a: ["Berlin", "Stuttgart", "München"], correct: "Stuttgart" },
+        { q: "Was soll der Iran laut Abkommen begrenzen?", a: ["Ölexporte", "Uran-Anreicherung", "Bevölkerungswachstum"], correct: "Uran-Anreicherung" },
+        { q: "Welche Temperatur wird am 27. Feb in Bonn erreicht?", a: ["10 Grad", "18 Grad", "22 Grad"], correct: "18 Grad" },
+        { q: "Welches Signal soll das NATO-Manöver senden?", a: ["Verteidigungsbereitschaft", "Angriffslust", "Friedensangebot"], correct: "Verteidigungsbereitschaft" },
+        { q: "Wer wurde am 19. Februar in London festgenommen?", a: ["Prinz Andrew", "Prinz Harry", "König Charles"], correct: "Prinz Andrew" }
     ];
 
-    let current = 0; let score = 0;
+    let quizQuestions = [];
+    let current = 0;
+    let score = 0;
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
     function startQuiz() { 
+        quizQuestions = shuffle([...originalQuestions]);
+        quizQuestions.forEach(q => shuffle(q.a));
         document.getElementById('quiz-start').classList.add('hidden'); 
         document.getElementById('quiz-box').classList.remove('hidden'); 
         loadQ(); 
     }
     
     function loadQ() {
-        const q = questions[current]; 
+        const q = quizQuestions[current]; 
         document.getElementById('questionText').innerText = q.q;
-        document.getElementById('quiz-progress').innerText = "Frage " + (current + 1) + " von " + questions.length;
-        const container = document.getElementById('options'); container.innerHTML = "";
-        q.a.forEach((opt, i) => {
+        document.getElementById('quiz-progress').innerText = "Frage " + (current + 1) + " von " + quizQuestions.length;
+        const container = document.getElementById('options'); 
+        container.innerHTML = "";
+        q.a.forEach((opt) => {
             const btn = document.createElement('button'); 
             btn.className = "option-btn"; 
             btn.innerText = opt;
-            btn.onclick = () => check(i, btn); 
+            btn.onclick = () => check(opt, btn); 
             container.appendChild(btn);
         });
     }
 
-    function check(idx, btn) {
-        const correctIdx = questions[current].correct;
+    function check(selectedText, btn) {
+        const correctText = quizQuestions[current].correct;
         const all = document.querySelectorAll('.option-btn');
         all.forEach(b => b.disabled = true);
-        
-        if(idx === correctIdx) { 
+        if(selectedText === correctText) { 
             score++; 
             btn.classList.add('btn-correct');
             setTimeout(next, 1000);
         } else { 
             btn.classList.add('btn-wrong');
-            all[correctIdx].classList.add('btn-correct'); 
+            all.forEach(b => { if(b.innerText === correctText) b.classList.add('btn-correct'); });
             setTimeout(next, 1200); 
         }
     }
 
     function next() {
         current++; 
-        if(current < questions.length) loadQ(); 
+        if(current < quizQuestions.length) loadQ(); 
         else showResult();
     }
 
     function showResult() {
         document.getElementById('quiz-box').classList.add('hidden');
         document.getElementById('quiz-result').classList.remove('hidden');
-        document.getElementById('finalScore').innerHTML = "Ergebnis: " + score + " von " + questions.length + " Punkten.";
+        document.getElementById('finalScore').innerHTML = "Ergebnis: " + score + " von " + quizQuestions.length + " Punkten.";
     }
 </script>
 </body>
