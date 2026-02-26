@@ -3,180 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politik-Quiz 2026</title>
+    <title>DIE TAGESPOLITIK | 27.02.2026</title>
     <style>
-        :root { 
-            --primary: #004a99; 
-            --success: #2ecc71; 
-            --danger: #e74c3c; 
-        }
+        :root { --paper-bg: #f4f1ea; --ink: #1a1a1a; --accent: #d40000; --correct: #28a745; --wrong: #dc3545; }
+        body { font-family: 'Arial', sans-serif; background-color: var(--paper-bg); color: var(--ink); margin: 0; padding: 20px; line-height: 1.6; }
+        .paper-container { max-width: 1200px; margin: 0 auto; border: 1px solid #000; background: #fff; padding: 40px; box-shadow: 5px 5px 25px rgba(0,0,0,0.2); }
+        
+        header { text-align: center; border-bottom: 5px double var(--ink); margin-bottom: 20px; }
+        header h1 { font-family: 'Times New Roman', serif; font-size: 4rem; margin: 0; font-weight: bold; text-transform: uppercase; letter-spacing: -2px; }
+        .sub-header { border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); padding: 8px; margin: 10px 0; font-weight: bold; display: flex; justify-content: space-between; font-size: 1rem; }
 
-        body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            background: linear-gradient(135deg, #dceefb 0%, #b2d7ff 100%); 
-            min-height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin: 0; 
-        }
+        .main-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 40px; }
+        .news-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; border-right: 1px solid #ddd; padding-right: 30px; }
+        
+        article { margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 20px; text-align: justify; }
+        h2 { font-size: 0.8rem; color: var(--accent); margin: 0; text-transform: uppercase; font-weight: 900; }
+        h3 { font-size: 1.5rem; margin: 6px 0; font-weight: bold; line-height: 1.2; font-family: 'Times New Roman', serif; }
+        p { font-size: 1.05rem; margin: 10px 0; }
+        
+        .featured-article { grid-column: 1 / span 2; background: #fdfaf4; padding: 30px; border: 1px solid #ddd; margin-bottom: 30px; }
+        .featured-article h3 { font-size: 2.2rem; }
 
-        .quiz-container { 
-            background: white; 
-            width: 90%; 
-            max-width: 450px; 
-            padding: 30px; 
-            border-radius: 24px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
-            text-align: center; 
-        }
+        .side-bar { background: #fdfaf4; padding: 25px; border-left: 1px solid #ddd; height: fit-content; }
+        .side-bar h4 { border-bottom: 2px solid var(--ink); margin: 0 0 20px 0; font-size: 1.2rem; text-transform: uppercase; }
 
-        /* Fortschrittsbalken */
-        .progress-container { width: 100%; height: 8px; background: #eee; border-radius: 10px; margin-bottom: 20px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--primary); width: 0%; transition: width 0.4s ease; }
+        .date-badge { background: var(--ink); color: white; padding: 3px 8px; font-size: 0.8rem; margin-right: 8px; font-weight: bold; }
+        .source-tag { font-size: 0.75rem; color: #666; font-weight: bold; font-style: italic; }
 
-        /* Buttons */
-        .option-btn { 
-            display: block; width: 100%; margin: 10px 0; padding: 15px; 
-            border: 2px solid #edf2f7; border-radius: 12px; cursor: pointer; 
-            font-size: 1rem; background: white; transition: all 0.2s; 
-        }
-
-        .option-btn:hover:not(:disabled) { border-color: var(--primary); background: #f0f7ff; }
-
-        /* Animationen für Richtig/Falsch */
-        .btn-correct { background-color: var(--success) !important; color: white !important; border-color: var(--success) !important; transform: scale(1.03); }
-        .btn-wrong { background-color: var(--danger) !important; color: white !important; border-color: var(--danger) !important; animation: shake 0.4s ease; }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-8px); }
-            75% { transform: translateX(8px); }
-        }
-
+        #quiz-section { margin-top: 40px; padding: 35px; border: 5px solid var(--ink); background: #fcfcfc; }
+        .option-btn { display: block; width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #ccc; background: white; cursor: pointer; text-align: left; font-size: 1.1rem; }
+        .btn-correct { background: var(--correct) !important; color: white !important; font-weight: bold; border-color: #1e7e34 !important; }
+        .btn-wrong { background: var(--wrong) !important; color: white !important; border-color: #bd2130 !important; }
         .hidden { display: none; }
 
-        .start-btn { 
-            padding: 15px 50px; 
-            background: var(--primary); 
-            color: white; 
-            border: none; 
-            border-radius: 12px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            transition: transform 0.2s;
-        }
-        .start-btn:hover { transform: scale(1.05); }
+        footer { margin-top: 40px; font-size: 0.9rem; text-align: center; color: #666; border-top: 1px solid #ccc; padding-top: 20px; }
     </style>
 </head>
 <body>
 
-<div class="quiz-container">
-    <div id="setup">
-        <h1>🗳️ Politik-Quiz 2026</h1>
-        <p>Bist du ein Experte? Teste dein Wissen aus dem Video!</p>
-        <br>
-        <button class="start-btn" onclick="startQuiz()">Jetzt starten</button>
-    </div>
-
-    <div id="quiz" class="hidden">
-        <div class="progress-container">
-            <div class="progress-fill" id="fill"></div>
+<div class="paper-container">
+    <header>
+        <h1>Die Tagespolitik</h1>
+        <div class="sub-header">
+            <span>Freitag, 27. Februar 2026</span>
+            <span>Umfassende Wochenanalyse</span>
+            <span>Ausgabe Bonn</span>
         </div>
-        <h3 id="questionText">Frage lädt...</h3>
-        <div id="options"></div>
+    </header>
+
+    <div class="main-grid">
+        <div class="news-columns">
+            
+            <article class="featured-article">
+                <h2><span class="date-badge">25. FEB</span> ANALYSE: DER IRAN-KONFLIKT</h2>
+                <h3>Zwischen Atom-Abkommen und wirtschaftlicher Not</h3>
+                <p>Der Iran steht im Februar 2026 an einem historischen Wendepunkt. Seit Jahrzehnten sorgt das iranische Atom-Programm für Spannungen auf der ganzen Welt. Während die Regierung in Teheran betont, die Technologie ausschließlich für die zivile Energieversorgung und medizinische Forschung zu nutzen, befürchten westliche Geheimdienste den Bau einer Atombombe. Eine solche Bewaffnung würde das militärische Gleichgewicht im Nahen Osten massiv erschüttern und wird von Ländern wie den USA und Deutschland als rote Linie betrachtet.</p>
+                <p>Um den Iran zur Kooperation zu zwingen, wurden über Jahre hinweg harte Wirtschaftssanktionen verhängt. Diese Strafen haben den Alltag der Menschen im Iran drastisch verändert. Die Landeswährung hat massiv an Wert verloren, was zu einer explodierenden Inflation führt. Einfache Lebensmittel, Medikamente und Mieten sind für viele Bürger kaum noch bezahlbar. Diese wirtschaftliche Not hat in den letzten Monaten zu verstärkten Protesten in den Provinzen geführt, bei denen die Menschen nicht nur wirtschaftliche Hilfe, sondern auch mehr soziale Freiheit fordern.</p>
+                <p>In dieser Woche blickt die Welt nun hoffnungsvoll nach Genf. In der Schweizer Stadt finden diplomatische Gespräche auf höchster Ebene statt. Das Ziel ist ein umfassender Vertrag: Der Iran soll sich dazu verpflichten, seine Atomanlagen für internationale Kontrolleure der UN vollständig zu öffnen und die Anreicherung von Uran zu begrenzen. Im Gegenzug stellt der Westen die schrittweise Aufhebung der Sanktionen in Aussicht. Dies würde dem Iran ermöglichen, wieder Öl auf dem Weltmarkt zu verkaufen und Anschluss an das internationale Bankensystem zu finden. Experten betonen jedoch, dass das Vertrauen auf beiden Seiten gering ist und die Verhandlungen jederzeit scheitern könnten.</p>
+            </article>
+
+            <div class="col">
+                <article>
+                    <h2><span class="date-badge">19. FEB</span> SKANDAL IN ENGLAND</h2>
+                    <h3>Ehemaliger Prinz Andrew festgenommen</h3>
+                    <p>Der ehemalige Prinz Andrew (Andrew Mountbatten-Windsor) wurde in London festgenommen. Die Ermittler werfen ihm vor, über Jahre hinweg sensible Daten an Jeffrey Epstein übermittelt zu haben. Die Polizei in England spricht von einem komplexen Netzwerk. Der Fall sorgt weltweit für Aufsehen, da er bis in höchste gesellschaftliche Kreise reicht.</p>
+                    <span class="source-tag">Quelle: SPIEGEL / ZDF</span>
+                </article>
+
+                <article>
+                    <h2><span class="date-badge">20. FEB</span> CDU-PARTEITAG</h2>
+                    <h3>Merz mit starkem Ergebnis bestätigt</h3>
+                    <p>Friedrich Merz bleibt der starke Mann der CDU. Auf dem Parteitag in Stuttgart erhielt er 91,17 % der Stimmen. In seiner Rede betonte er, dass die CDU die Partei der wirtschaftlichen Vernunft sei. Er erneuerte sein Versprechen, dass es unter seiner Führung keine politische Zusammenarbeit mit der AfD geben wird.</p>
+                    <span class="source-tag">Quelle: Reuters</span>
+                </article>
+
+                <article>
+                    <h2><span class="date-badge">21. FEB</span> PROGRAMM-ABSCHLUSS</h2>
+                    <h3>CDU fordert Kernkraft-Rückkehr</h3>
+                    <p>Zum Abschluss des Parteitags verabschiedete die CDU ihr neues Grundsatzprogramm. Ein zentraler Punkt ist die Forderung nach einer Rückkehr zur Kernkraft, um die Energiepreise für die deutsche Industrie stabil zu halten. Zudem soll die Einwanderung nach Deutschland strenger kontrolliert werden.</p>
+                </article>
+            </div>
+
+            <div class="col">
+                <article>
+                    <h2><span class="date-badge">23. FEB</span> LOKALNACHRICHTEN BONN</h2>
+                    <h3>Rhein-Brücke: Bauarbeiten genehmigt</h3>
+                    <p>Die lang geplante neue Rhein-Brücke in Bonn hat die finale Genehmigung erhalten. Das Projekt soll den täglichen Stau auf den Autobahnen rund um die Stadt drastisch reduzieren. Kritisch bleibt jedoch die Lage am Rheinufer: Umweltschützer kündigten bereits Widerstand an, da für den Bau zahlreiche alte Bäume gefällt werden müssen.</p>
+                    <span class="source-tag">Quelle: General-Anzeiger</span>
+                </article>
+
+                <article>
+                    <h2><span class="date-badge">24. FEB</span> NATO-VERTEIDIGUNG</h2>
+                    <h3>Großmanöver in Deutschland gestartet</h3>
+                    <p>Elf NATO-Partner trainieren zurzeit gemeinsam auf deutschem Boden. Bei der Übung geht es vor allem um Logistik: Wie schnell können Panzer und schweres Gerät an die europäische Ostgrenze verlegt werden? Das Manöver gilt als Signal der Verteidigungsbereitschaft.</p>
+                    <span class="source-tag">Quelle: Bundeswehr</span>
+                </article>
+
+                <article>
+                    <h2><span class="date-badge">26. FEB</span> WELTHANDEL</h2>
+                    <h3>Chip-Krise stoppt Autoproduktion</h3>
+                    <p>Ein eskalierender Handelsstreit zwischen den USA und China führt zu einem akuten Mangel an Computer-Chips. Da diese Bauteile in modernen Fahrzeugen unverzichtbar sind, mussten erste Fabriken in Deutschland ihre Fließbänder stoppen.</p>
+                    <span class="source-tag">Quelle: Euronews</span>
+                </article>
+
+                <article>
+                    <h2><span class="date-badge">27. FEB</span> WETTER-REKORD</h2>
+                    <h3>Frühlingserwachen bei 18 Grad</h3>
+                    <p>Ganz Deutschland erlebt heute einen ungewöhnlich warmen Wintertag. Dank einer milden Luftströmung aus dem Süden klettern die Temperaturen auf bis zu 18 Grad. In den Parks in Bonn genießen zahlreiche Menschen die Sonne.</p>
+                    <span class="source-tag">Quelle: Wetter.com</span>
+                </article>
+            </div>
+        </div>
+
+        <div class="side-bar">
+            <h4>☀️ Wetter in Bonn</h4>
+            <p>Ein fantastischer Tag wartet auf <b>dich</b>! Nutze die Sonnenstunden am Rhein.</p>
+            <p>🌡️ <b>8°C bis 18°C</b></p>
+            <p>💨 Wind: Fast windstill.</p>
+        </div>
     </div>
 
-    <div id="result" class="hidden">
-        <h2>Dein Ergebnis</h2>
-        <h1 style="font-size: 4rem; color: var(--primary); margin: 10px 0;"><span id="finalScore">0</span>/10</h1>
-        <p id="feedbackText" style="font-weight: bold; color: #555;"></p>
-        <br>
-        <button onclick="location.reload()" style="cursor:pointer; background:#f0f0f0; border:none; padding:12px 25px; border-radius:8px; font-weight: bold;">Nochmal spielen</button>
-    </div>
+    <section id="quiz-section">
+        <h3 style="text-align:center;">✙ DAS GROSSE WOCHEN-QUIZ (15 FRAGEN) ✙</h3>
+        <div id="quiz-start">
+            <button class="option-btn" onclick="startQuiz()" style="text-align:center; font-weight:bold; background:var(--ink); color:white;">JETZT QUIZ STARTEN</button>
+        </div>
+        <div id="quiz-box" class="hidden">
+            <p id="questionText" style="font-weight:bold; font-size:1.2rem;"></p>
+            <div id="options"></div>
+            <p id="quiz-progress" style="font-size: 0.8rem; color: #666; margin-top: 15px;"></p>
+        </div>
+        <div id="quiz-result" class="hidden" style="text-align:center;">
+            <p id="finalScore" style="font-size: 1.6rem; font-weight:bold;"></p>
+            <button onclick="location.reload()" style="padding: 15px 30px; cursor:pointer; background:var(--ink); color:white; border:none; font-size: 1.1rem;">Neu starten</button>
+        </div>
+    </section>
+
+    <footer>
+        Die Tagespolitik – Dokumentation der Ereignisse vom 19.02. bis 27.02.2026.
+    </footer>
 </div>
 
 <script>
     const questions = [
-        { q: "Was wird Prince Andrew am 19. Februar konkret vorgeworfen?", a: ["Steuerhinterziehung", "Dokumenten-Weitergabe an Jeffrey Epstein", "Diebstahl", "Flucht"], correct: 1 },
-        { q: "Warum ist Deutschland kein Mitglied im Gaza-Friedensrat?", a: ["Kein Geld", "Will UN-Sicherheitsrat nicht schwächen", "Israel dagegen", "Streit mit Bulgarien"], correct: 1 },
-        { q: "Mit wie viel Prozent wurde Friedrich Merz wiedergewählt?", a: ["75%", "88%", "91%", "95%"], correct: 2 },
-        { q: "Welches Gericht erklärte US-Zölle für unzulässig?", a: ["Gerichtshof", "Verfassungsgericht", "US Supreme Court", "EU-Rat"], correct: 2 },
-        { q: "Wann ist der Jahrestag des Ukraine-Kriegs?", a: ["19. Feb", "24. Feb", "26. Feb", "1. Jan"], correct: 1 },
-        { q: "Ziel der NATO-Übungen in Osteuropa?", a: ["Schutz der Ost-Mitglieder", "Angriff planen", "Training im Meer", "Mauerbau"], correct: 0 },
-        { q: "Welcher US-Politiker setzte dem Iran eine Frist?", a: ["Joe Biden", "Donald Trump", "Barack Obama", "Elon Musk"], correct: 1 },
-        { q: "Wie reagierte der Iran auf die Drohung?", a: ["Zustimmung", "Lässt sich nicht unter Druck setzen", "Abbruch aller Gespräche", "Entschuldigung"], correct: 1 },
-        { q: "Was zeigen die Wirtschaftszahlen am 26. Februar?", a: ["Zusammenbruch", "Leichte Verbesserung & Aufträge", "Keine Info", "Reichstes Land"], correct: 1 },
-        { q: "Was will die EU beim Thema Energie?", a: ["Mehr Kohle", "Umstieg auf erneuerbare Energien", "Preise hoch", "Alles aus"], correct: 1 }
+        { q: "Was wird dem ehemaligen Prinz Andrew (19. Feb) vorgeworfen?", a: ["Steuerhinterziehung", "Datenweitergabe an Jeffrey Epstein", "Diebstahl"], correct: 1 },
+        { q: "Wo wurde Friedrich Merz am 20. Februar wiedergewählt?", a: ["Bonn", "Berlin", "Stuttgart"], correct: 2 },
+        { q: "Wie viel Prozent erhielt Merz bei seiner Wahl?", a: ["75,00 %", "91,17 %", "99,00 %"], correct: 1 },
+        { q: "Was fordert die CDU im Programm vom 21. Feb?", a: ["Ausstieg aus Windkraft", "Rückkehr zur Kernkraft", "Bau von Kohlekraftwerken"], correct: 1 },
+        { q: "Was soll die neue Rhein-Brücke in Bonn bewirken?", a: ["Mehr Schiffe", "Stau-Reduzierung", "Schutz der Fische"], correct: 1 },
+        { q: "Warum gibt es Widerstand gegen die Brücke?", a: ["Wegen Lärm", "Wegen Fällung von Uferbäumen", "Wegen der Kosten"], correct: 1 },
+        { q: "Wie viele Partner nehmen am NATO-Manöver teil?", a: ["5 Länder", "11 Länder", "30 Länder"], correct: 1 },
+        { q: "Was wird beim NATO-Manöver hauptsächlich geübt?", a: ["Truppenverlegung nach Osten", "Häuserkampf", "Seeschlachten"], correct: 0 },
+        { q: "Warum finden aktuell Gespräche in Genf statt?", a: ["Wegen Klima", "Wegen Iran-Atomprogramm", "Wegen Öl-Preisen"], correct: 1 },
+        { q: "Welches Ziel verfolgt der Iran in Genf?", a: ["Mehr Waffen", "Ende der Sanktionen", "Eintritt in die EU"], correct: 1 },
+        { q: "Was sind 'Sanktionen'?", a: ["Wirtschaftliche Strafen", "Orden", "Verträge"], correct: 0 },
+        { q: "Was fehlt aktuell (26. Feb) im Welthandel?", a: ["Stahl", "Computer-Chips", "Reifen"], correct: 1 },
+        { q: "Zwischen welchen Ländern eskaliert der Handelsstreit?", a: ["Russland/USA", "USA/China", "Deutschland/Polen"], correct: 1 },
+        { q: "Wie warm wird es heute (27. Feb) in Bonn?", a: ["10 Grad", "18 Grad", "25 Grad"], correct: 1 },
+        { q: "Was ist Teheran?", a: ["Eine Insel", "Hauptstadt des Iran", "Ein Fluss"], correct: 1 }
     ];
 
-    let current = 0;
-    let score = 0;
-
-    function startQuiz() {
-        document.getElementById('setup').classList.add('hidden');
-        document.getElementById('quiz').classList.remove('hidden');
-        loadQuestion();
+    let current = 0; let score = 0;
+    function startQuiz() { 
+        document.getElementById('quiz-start').classList.add('hidden'); 
+        document.getElementById('quiz-box').classList.remove('hidden'); 
+        loadQ(); 
     }
-
-    function loadQuestion() {
-        const q = questions[current];
-        // Fortschrittsbalken aktualisieren
-        document.getElementById('fill').style.width = (current / questions.length * 100) + "%";
+    
+    function loadQ() {
+        const q = questions[current]; 
         document.getElementById('questionText').innerText = q.q;
-        
-        const container = document.getElementById('options');
-        container.innerHTML = "";
-
+        document.getElementById('quiz-progress').innerText = "Frage " + (current + 1) + " von " + questions.length;
+        const container = document.getElementById('options'); container.innerHTML = "";
         q.a.forEach((opt, i) => {
-            const btn = document.createElement('button');
-            btn.className = "option-btn";
+            const btn = document.createElement('button'); 
+            btn.className = "option-btn"; 
             btn.innerText = opt;
-            btn.onclick = () => check(i, btn);
+            btn.onclick = () => check(i, btn); 
             container.appendChild(btn);
         });
     }
 
     function check(idx, btn) {
         const correctIdx = questions[current].correct;
-        const allBtns = document.querySelectorAll('.option-btn');
+        const all = document.querySelectorAll('.option-btn');
+        all.forEach(b => b.disabled = true);
         
-        // Buttons sperren
-        allBtns.forEach(b => b.disabled = true);
-
-        if(idx === correctIdx) {
-            score++;
+        if(idx === correctIdx) { 
+            score++; 
             btn.classList.add('btn-correct');
-        } else {
+            setTimeout(next, 1000);
+        } else { 
             btn.classList.add('btn-wrong');
-            // Zeige die richtige Antwort auch an
-            allBtns[correctIdx].classList.add('btn-correct');
+            all[correctIdx].classList.add('btn-correct'); 
+            setTimeout(next, 1200); 
         }
-
-        // 1 Sekunde warten, dann nächste Frage
-        setTimeout(() => {
-            current++;
-            if(current < questions.length) {
-                loadQuestion();
-            } else {
-                finish();
-            }
-        }, 1000);
     }
 
-    function finish() {
-        document.getElementById('quiz').classList.add('hidden');
-        document.getElementById('result').classList.remove('hidden');
-        document.getElementById('finalScore').innerText = score;
-        
-        let feedback = "";
-        if(score === 10) feedback = "Perfekt! Du bist ein Politik-Profi!";
-        else if(score >= 7) feedback = "Sehr gut! Du hast fast alles gewusst.";
-        else if(score >= 5) feedback = "Ganz okay, aber schau lieber nochmal ins Video.";
-        else feedback = "Da musst du wohl nochmal besser aufpassen!";
-        
-        document.getElementById('feedbackText').innerText = feedback;
+    function next() {
+        current++; 
+        if(current < questions.length) loadQ(); 
+        else showResult();
+    }
+
+    function showResult() {
+        document.getElementById('quiz-box').classList.add('hidden');
+        document.getElementById('quiz-result').classList.remove('hidden');
+        document.getElementById('finalScore').innerHTML = "Ergebnis: " + score + " von " + questions.length + " Punkten.";
     }
 </script>
 </body>
