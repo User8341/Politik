@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politik-Quiz 2026</title>
+    <style>
+        :root { 
+            --primary: #004a99; 
+            --success: #2ecc71; 
+            --danger: #e74c3c; 
+        }
+
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background: linear-gradient(135deg, #dceefb 0%, #b2d7ff 100%); 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0; 
+        }
+
+        .quiz-container { 
+            background: white; 
+            width: 90%; 
+            max-width: 450px; 
+            padding: 30px; 
+            border-radius: 24px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+            text-align: center; 
+        }
+
+        /* Fortschrittsbalken */
+        .progress-container { width: 100%; height: 8px; background: #eee; border-radius: 10px; margin-bottom: 20px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--primary); width: 0%; transition: width 0.4s ease; }
+
+        /* Buttons */
+        .option-btn { 
+            display: block; width: 100%; margin: 10px 0; padding: 15px; 
+            border: 2px solid #edf2f7; border-radius: 12px; cursor: pointer; 
+            font-size: 1rem; background: white; transition: all 0.2s; 
+        }
+
+        .option-btn:hover:not(:disabled) { border-color: var(--primary); background: #f0f7ff; }
+
+        /* Animationen für Richtig/Falsch */
+        .btn-correct { background-color: var(--success) !important; color: white !important; border-color: var(--success) !important; transform: scale(1.03); }
+        .btn-wrong { background-color: var(--danger) !important; color: white !important; border-color: var(--danger) !important; animation: shake 0.4s ease; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+
+        .hidden { display: none; }
+
+        .start-btn { 
+            padding: 15px 50px; 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            transition: transform 0.2s;
+        }
+        .start-btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div id="setup">
+        <h1>🗳️ Politik-Quiz 2026</h1>
+        <p>Bist du ein Experte? Teste dein Wissen aus dem Video!</p>
+        <br>
+        <button class="start-btn" onclick="startQuiz()">Jetzt starten</button>
+    </div>
+
+    <div id="quiz" class="hidden">
+        <div class="progress-container">
+            <div class="progress-fill" id="fill"></div>
+        </div>
+        <h3 id="questionText">Frage lädt...</h3>
+        <div id="options"></div>
+    </div>
+
+    <div id="result" class="hidden">
+        <h2>Dein Ergebnis</h2>
+        <h1 style="font-size: 4rem; color: var(--primary); margin: 10px 0;"><span id="finalScore">0</span>/10</h1>
+        <p id="feedbackText" style="font-weight: bold; color: #555;"></p>
+        <br>
+        <button onclick="location.reload()" style="cursor:pointer; background:#f0f0f0; border:none; padding:12px 25px; border-radius:8px; font-weight: bold;">Nochmal spielen</button>
+    </div>
+</div>
+
+<script>
+    const questions = [
+        { q: "Was wird Prince Andrew am 19. Februar konkret vorgeworfen?", a: ["Steuerhinterziehung", "Dokumenten-Weitergabe an Jeffrey Epstein", "Diebstahl", "Flucht"], correct: 1 },
+        { q: "Warum ist Deutschland kein Mitglied im Gaza-Friedensrat?", a: ["Kein Geld", "Will UN-Sicherheitsrat nicht schwächen", "Israel dagegen", "Streit mit Bulgarien"], correct: 1 },
+        { q: "Mit wie viel Prozent wurde Friedrich Merz wiedergewählt?", a: ["75%", "88%", "91%", "95%"], correct: 2 },
+        { q: "Welches Gericht erklärte US-Zölle für unzulässig?", a: ["Gerichtshof", "Verfassungsgericht", "US Supreme Court", "EU-Rat"], correct: 2 },
+        { q: "Wann ist der Jahrestag des Ukraine-Kriegs?", a: ["19. Feb", "24. Feb", "26. Feb", "1. Jan"], correct: 1 },
+        { q: "Ziel der NATO-Übungen in Osteuropa?", a: ["Schutz der Ost-Mitglieder", "Angriff planen", "Training im Meer", "Mauerbau"], correct: 0 },
+        { q: "Welcher US-Politiker setzte dem Iran eine Frist?", a: ["Joe Biden", "Donald Trump", "Barack Obama", "Elon Musk"], correct: 1 },
+        { q: "Wie reagierte der Iran auf die Drohung?", a: ["Zustimmung", "Lässt sich nicht unter Druck setzen", "Abbruch aller Gespräche", "Entschuldigung"], correct: 1 },
+        { q: "Was zeigen die Wirtschaftszahlen am 26. Februar?", a: ["Zusammenbruch", "Leichte Verbesserung & Aufträge", "Keine Info", "Reichstes Land"], correct: 1 },
+        { q: "Was will die EU beim Thema Energie?", a: ["Mehr Kohle", "Umstieg auf erneuerbare Energien", "Preise hoch", "Alles aus"], correct: 1 }
+    ];
+
+    let current = 0;
+    let score = 0;
+
+    function startQuiz() {
+        document.getElementById('setup').classList.add('hidden');
+        document.getElementById('quiz').classList.remove('hidden');
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        const q = questions[current];
+        // Fortschrittsbalken aktualisieren
+        document.getElementById('fill').style.width = (current / questions.length * 100) + "%";
+        document.getElementById('questionText').innerText = q.q;
+        
+        const container = document.getElementById('options');
+        container.innerHTML = "";
+
+        q.a.forEach((opt, i) => {
+            const btn = document.createElement('button');
+            btn.className = "option-btn";
+            btn.innerText = opt;
+            btn.onclick = () => check(i, btn);
+            container.appendChild(btn);
+        });
+    }
+
+    function check(idx, btn) {
+        const correctIdx = questions[current].correct;
+        const allBtns = document.querySelectorAll('.option-btn');
+        
+        // Buttons sperren
+        allBtns.forEach(b => b.disabled = true);
+
+        if(idx === correctIdx) {
+            score++;
+            btn.classList.add('btn-correct');
+        } else {
+            btn.classList.add('btn-wrong');
+            // Zeige die richtige Antwort auch an
+            allBtns[correctIdx].classList.add('btn-correct');
+        }
+
+        // 1 Sekunde warten, dann nächste Frage
+        setTimeout(() => {
+            current++;
+            if(current < questions.length) {
+                loadQuestion();
+            } else {
+                finish();
+            }
+        }, 1000);
+    }
+
+    function finish() {
+        document.getElementById('quiz').classList.add('hidden');
+        document.getElementById('result').classList.remove('hidden');
+        document.getElementById('finalScore').innerText = score;
+        
+        let feedback = "";
+        if(score === 10) feedback = "Perfekt! Du bist ein Politik-Profi!";
+        else if(score >= 7) feedback = "Sehr gut! Du hast fast alles gewusst.";
+        else if(score >= 5) feedback = "Ganz okay, aber schau lieber nochmal ins Video.";
+        else feedback = "Da musst du wohl nochmal besser aufpassen!";
+        
+        document.getElementById('feedbackText').innerText = feedback;
+    }
+</script>
+</body>
+</html>
