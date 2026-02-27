@@ -4,171 +4,539 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIE TAGESPOLITIK | 26.02.2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        :root { --paper-bg: #f4f1ea; --ink: #1a1a1a; --accent: #d40000; --correct: #28a745; --wrong: #dc3545; }
-        
-        body { font-family: 'Arial', sans-serif; background-color: var(--paper-bg); color: var(--ink); margin: 0; padding: 10px; line-height: 1.6; }
-        .paper-container { max-width: 1200px; margin: 0 auto; border: 1px solid #000; background: #fff; padding: 20px; box-shadow: 5px 5px 25px rgba(0,0,0,0.2); }
-        
-        header { text-align: center; border-bottom: 5px double var(--ink); margin-bottom: 20px; }
-        header h1 { font-family: 'Times New Roman', serif; font-size: clamp(2.5rem, 10vw, 4rem); margin: 0; font-weight: bold; text-transform: uppercase; letter-spacing: -2px; }
-        
-        .sub-header { border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); padding: 8px; margin: 10px 0; font-weight: bold; display: flex; justify-content: space-between; font-size: 0.9rem; flex-wrap: wrap; gap: 10px; }
-
-        .main-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .news-columns { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        
-        @media (min-width: 800px) {
-            body { padding: 20px; }
-            .paper-container { padding: 40px; }
-            .main-grid { grid-template-columns: 3fr 1fr; gap: 40px; }
-            .news-columns { grid-template-columns: 1fr 1fr; border-right: 1px solid #ddd; padding-right: 30px; }
-            .featured-article { grid-column: 1 / span 2; }
+        :root {
+            --cream: #f7f3eb;
+            --ivory: #faf7f2;
+            --ink: #1c1917;
+            --ink-light: #3d3530;
+            --rule: #2a2420;
+            --accent: #8b1a1a;
+            --muted: #7a6f65;
+            --border: #c8bfb0;
         }
-        
-        article { margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 20px; text-align: justify; }
-        h2 { font-size: 0.8rem; color: var(--accent); margin: 0; text-transform: uppercase; font-weight: 900; }
-        h3 { font-size: 1.5rem; margin: 6px 0; font-weight: bold; line-height: 1.2; font-family: 'Times New Roman', serif; }
-        p { font-size: 1.05rem; margin: 10px 0; }
-        
-        .featured-article { background: #fdfaf4; padding: clamp(15px, 5vw, 30px); border: 1px solid #ddd; margin-bottom: 20px; }
-        .featured-article h3 { font-size: clamp(1.8rem, 6vw, 2.2rem); }
 
-        .side-bar { background: #fdfaf4; padding: 25px; border: 1px solid #ddd; height: fit-content; }
-        @media (min-width: 800px) { .side-bar { border: none; border-left: 1px solid #ddd; } }
-        
-        .side-bar h4 { border-bottom: 2px solid var(--ink); margin: 20px 0 10px 0; font-size: 1.1rem; text-transform: uppercase; }
-        .side-bar h4:first-child { margin-top: 0; }
-        .poll-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-        .poll-table td { padding: 5px 0; border-bottom: 1px solid #eee; }
-        .poll-table td:last-child { text-align: right; font-weight: bold; color: var(--accent); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .date-badge { background: var(--ink); color: white; padding: 3px 8px; font-size: 0.8rem; margin-right: 8px; font-weight: bold; }
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            background: #e8e2d8;
+            color: var(--ink);
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
 
-        #quiz-section { margin-top: 40px; padding: clamp(15px, 5vw, 35px); border: 5px solid var(--ink); background: #fcfcfc; }
-        .option-btn { display: block; width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #ccc; background: white; cursor: pointer; text-align: left; font-size: 1.1rem; border-radius: 4px; }
-        .btn-correct { background: var(--correct) !important; color: white !important; font-weight: bold; border-color: #1e7e34 !important; }
-        .btn-wrong { background: var(--wrong) !important; color: white !important; border-color: #bd2130 !important; }
+        .paper {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--cream);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.25), 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        /* ── MASTHEAD ── */
+        .masthead {
+            text-align: center;
+            padding: 36px 40px 20px;
+            border-bottom: 3px double var(--rule);
+        }
+
+        .masthead-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .masthead-title {
+            font-family: 'IM Fell English', 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            line-height: 1;
+            color: var(--ink);
+        }
+
+        .masthead-title span {
+            color: var(--accent);
+        }
+
+        .masthead-rule {
+            height: 1px;
+            background: var(--rule);
+            margin: 14px 0 10px;
+        }
+
+        .masthead-sub {
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* ── LAYOUT ── */
+        .body-wrap {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            padding: 30px 30px 40px;
+        }
+
+        @media (min-width: 860px) {
+            .body-wrap {
+                grid-template-columns: 1fr 200px;
+                gap: 0 30px;
+                padding: 36px 40px 50px;
+            }
+        }
+
+        .main-col { min-width: 0; }
+
+        /* ── FEATURED ── */
+        .featured {
+            margin-bottom: 32px;
+            padding-bottom: 28px;
+            border-bottom: 2px solid var(--rule);
+        }
+
+        .category-label {
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .date-chip {
+            display: inline-block;
+            background: var(--ink);
+            color: var(--cream);
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            padding: 2px 7px;
+            margin-right: 6px;
+        }
+
+        .featured h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin: 8px 0 14px;
+            color: var(--ink);
+        }
+
+        .featured p {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--ink-light);
+            text-align: justify;
+            margin-bottom: 10px;
+            hyphens: auto;
+        }
+
+        /* ── COLUMNS ── */
+        .columns {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0 30px;
+        }
+
+        @media (min-width: 560px) {
+            .columns { grid-template-columns: 1fr 1fr; }
+        }
+
+        .col-section { padding-top: 8px; }
+
+        article {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        article:last-child { border-bottom: none; }
+
+        article h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin: 6px 0 8px;
+            color: var(--ink);
+        }
+
+        article p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--ink-light);
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            padding-top: 8px;
+            border-top: 2px solid var(--rule);
+            margin-top: 30px;
+        }
+
+        @media (min-width: 860px) {
+            .sidebar {
+                border-top: none;
+                border-left: 1px solid var(--border);
+                padding: 0 0 0 24px;
+                margin-top: 0;
+            }
+        }
+
+        .sidebar-block {
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-block:last-child { border-bottom: none; }
+
+        .sidebar-heading {
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+        }
+
+        .poll-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px solid #e8e0d4;
+            font-size: 0.82rem;
+        }
+
+        .poll-row:last-child { border-bottom: none; }
+
+        .poll-party { color: var(--ink-light); }
+
+        .poll-pct {
+            font-weight: 700;
+            color: var(--accent);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .weather-info {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: var(--ink-light);
+        }
+
+        .weather-temp {
+            font-size: 1.6rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--ink);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* ── DIVIDER ── */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 24px 0 20px;
+        }
+
+        .section-divider-line { flex: 1; height: 1px; background: var(--rule); }
+        .section-divider-title {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        /* ── QUIZ ── */
+        #quiz-section {
+            margin: 0 30px 40px;
+            border: 2px solid var(--rule);
+            background: var(--ivory);
+        }
+
+        @media (min-width: 860px) { #quiz-section { margin: 0 40px 50px; } }
+
+        .quiz-header {
+            background: var(--ink);
+            color: var(--cream);
+            text-align: center;
+            padding: 16px;
+        }
+
+        .quiz-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .quiz-body { padding: 24px; }
+
+        #questionText {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 16px;
+            color: var(--ink);
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            margin: 8px 0;
+            border: 1px solid var(--border);
+            background: white;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.95rem;
+            color: var(--ink);
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: var(--ink);
+            background: #f0ebe0;
+        }
+
+        .btn-correct { background: #d4edda !important; border-color: #28a745 !important; font-weight: 700; color: #155724 !important; }
+        .btn-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24 !important; }
+
+        #quiz-progress {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 16px;
+        }
+
+        .start-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: var(--ink);
+            color: var(--cream);
+            border: none;
+            cursor: pointer;
+            font-family: 'Source Serif 4', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: background 0.15s;
+        }
+
+        .start-btn:hover { background: var(--accent); }
+
+        #quiz-result { text-align: center; padding: 20px 0; }
+
+        #finalScore {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        #feedbackText {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .restart-btn {
+            padding: 12px 28px;
+            background: var(--ink);
+            color: var(--cream);
+            border: none;
+            cursor: pointer;
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .restart-btn:hover { background: var(--accent); }
+
         .hidden { display: none; }
 
-        footer { margin-top: 40px; font-size: 0.9rem; text-align: center; color: #666; border-top: 1px solid #ccc; padding-top: 20px; }
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 20px 40px;
+            border-top: 3px double var(--rule);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        footer strong { color: var(--ink); }
     </style>
 </head>
 <body>
 
-<div class="paper-container">
-    <header>
-        <h1>Die Tagespolitik</h1>
-        <div class="sub-header">
-            <span>Donnerstag, 26. Februar 2026</span>
-            <span>Wochenanalyse</span>
+<div class="paper">
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-top">
             <span>Ausgabe Bonn</span>
+            <span>Wochenanalyse</span>
+            <span>Donnerstag, 26. Februar 2026</span>
         </div>
-    </header>
+        <div class="masthead-title">Die <span>Tages</span>politik</div>
+        <div class="masthead-rule"></div>
+        <div class="masthead-sub">Dokumentation der Ereignisse &middot; 19. bis 27. Februar 2026</div>
+    </div>
 
-    <div class="main-grid">
-        <div class="news-columns">
-            
-            <article class="featured-article">
-                <h2><span class="date-badge">25. FEB</span> ANALYSE: DER IRAN-KONFLIKT</h2>
+    <!-- BODY -->
+    <div class="body-wrap">
+        <div class="main-col">
+
+            <!-- FEATURED ARTICLE -->
+            <div class="featured">
+                <div class="category-label"><span class="date-chip">25. Feb</span>Analyse: Der Iran-Konflikt</div>
                 <h3>Zwischen Atom-Abkommen und wirtschaftlicher Not</h3>
-                <p>Der Iran steht im Februar 2026 an einem historischen Wendepunkt. Seit Jahrzehnten sorgt das iranische Atom-Programm für Spannungen auf der ganzen Welt. Während die Regierung in Teheran betont, die Technologie ausschließlich für die zivile Energieversorgung und medizinische Forschung zu nutzen, befürchten westliche Geheimdienste den Bau einer Atombombe. Eine solche Bewaffnung würde das militärische Gleichgewicht im Nahen Osten massiv erschüttern und wird von Ländern wie den USA und Deutschland als rote Linie betrachtet.</p>
-                <p>Um den Iran zur Kooperation zu zwingen, wurden über Jahre hinweg harte Wirtschaftssanktionen verhängt. Diese Strafen haben den Alltag der Menschen im Iran drastisch verändert. Die Landeswährung hat massiv an Wert verloren, was zu einer explodierenden Inflation führt. Einfache Lebensmittel, Medikamente und Mieten sind für viele Bürger kaum noch bezahlbar.</p>
-                <p>In dieser Woche blickt die Welt nun hoffnungsvoll nach Genf. In der Schweizer Stadt finden diplomatische Gespräche auf höchster Ebene statt. Das Ziel ist ein umfassender Vertrag: Der Iran soll sich dazu verpflichten, seine Atomanlagen für internationale Kontrolleure der UN vollständig zu öffnen und die Anreicherung von Uran zu begrenzen.</p>
-            </article>
-
-            <div class="col">
-                <article>
-                    <h2><span class="date-badge">22. FEB</span> SPORT: OLYMPIA 2026</h2>
-                    <h3>Winterspiele enden feierlich</h3>
-                    <p>Die Olympischen Winterspiele Milano‑Cortina 2026 gingen am 22. Februar 2026 mit einer großen Schlussfeier in der Arena von Verona (Italien) zu Ende. Neben dem kulturellen Finale dominierten sportliche Erfolge das Programm, u. a. starke Leistungen der deutschen Athletinnen und Athleten.</p>
-                </article>
-
-                <article>
-                    <h2><span class="date-badge">26. FEB</span> MEXIKO: AUSNAHMEZUSTAND</h2>
-                    <h3>Kartell-Gewalt eskaliert nach Tod von "El Mencho"</h3>
-                    <p>Seit der Bestätigung, dass der berüchtigte Kartellboss <b>Nemesio Oseguera Cervantes</b> ("El Mencho") getötet wurde, versinkt Mexiko in Chaos. Das <b>Cártel Jalisco Nueva Generación (CJNG)</b> reagiert mit brutalen Vergeltungsschlägen. Experten warnen vor einer weiteren Eskalation in den kommenden Wochen.</p>
-                </article>
-
-                <article>
-                    <h2><span class="date-badge">19. FEB</span> SKANDAL IN ENGLAND</h2>
-                    <h3>Ehemaliger Prinz Andrew festgenommen</h3>
-                    <p>Der ehemalige Prinz Andrew wurde in London festgenommen. Die Ermittler werfen ihm vor, über Jahre hinweg sensible Daten an Jeffrey Epstein übermittelt zu haben.</p>
-                </article>
+                <p>Der Iran steht im Februar 2026 an einem historischen Wendepunkt. Seit Jahrzehnten sorgt das iranische Atom-Programm für Spannungen auf der ganzen Welt. Während die Regierung in Teheran betont, die Technologie ausschließlich für die zivile Energieversorgung und medizinische Forschung zu nutzen, befürchten westliche Geheimdienste den Bau einer Atombombe. Eine solche Bewaffnung würde das militärische Gleichgewicht im Nahen Osten massiv erschüttern.</p>
+                <p>Um den Iran zur Kooperation zu zwingen, wurden über Jahre hinweg harte Wirtschaftssanktionen verhängt. Diese Strafen haben den Alltag der Menschen drastisch verändert. Die Landeswährung hat massiv an Wert verloren, was zu einer explodierenden Inflation führt — einfache Lebensmittel, Medikamente und Mieten sind für viele Bürger kaum noch bezahlbar.</p>
+                <p>In dieser Woche blickt die Welt hoffnungsvoll nach Genf. In der Schweizer Stadt finden diplomatische Gespräche auf höchster Ebene statt. Das Ziel ist ein umfassender Vertrag: Der Iran soll seine Atomanlagen für internationale Kontrolleure der UN vollständig öffnen und die Anreicherung von Uran begrenzen.</p>
             </div>
 
-            <div class="col">
-                <article>
-                    <h2><span class="date-badge">20. FEB</span> CDU-PARTEITAG</h2>
-                    <h3>Merz mit starkem Ergebnis bestätigt</h3>
-                    <p>Friedrich Merz bleibt der starke Mann der CDU. Auf dem Parteitag in Stuttgart erhielt er 91,17 % der Stimmen und schloss eine Koalition mit der AfD erneut aus.</p>
-                </article>
-
-                <article>
-                    <h2><span class="date-badge">21. FEB</span> PROGRAMM</h2>
-                    <h3>CDU setzt auf Kernenergie-Prüfung</h3>
-                    <p>Die CDU will Kernenergie wieder prüfen lassen, um die Energiepreise stabil zu halten. Zudem fordert das neue Programm strengere Regeln bei der Einwanderung.</p>
-                </article>
-
-                <article>
-                    <h2><span class="date-badge">23. FEB</span> EU-PARLAMENT</h2>
-                    <h3>Verschärfte Regeln für den Klimaschutz</h3>
-                    <p>Das Europäische Parlament hat neue Regeln beschlossen, um den CO2-Ausstoß drastisch zu senken. Ziel ist die Unabhängigkeit von fossilen Brennstoffen bis 2045.</p>
-                </article>
-
-                <article>
-                    <h2><span class="date-badge">24. FEB</span> NATO</h2>
-                    <h3>Großmanöver in Deutschland</h3>
-                    <p>Elf NATO-Partner trainieren die schnelle Verlegung von Truppen an die Ostgrenze als deutliches Signal der Verteidigungsbereitschaft.</p>
-                </article>
-
-                <article>
-                    <h2><span class="date-badge">27. FEB</span> WETTER</h2>
-                    <h3>Bonn erreicht 18 Grad</h3>
-                    <p>Ein ungewöhnlich warmer Wintertag lockt die Menschen nach draußen. In Bonn werden heute Rekordtemperaturen von bis zu 18 Grad erreicht.</p>
-                </article>
+            <!-- SECTION DIVIDER -->
+            <div class="section-divider">
+                <div class="section-divider-line"></div>
+                <div class="section-divider-title">Weitere Meldungen</div>
+                <div class="section-divider-line"></div>
             </div>
+
+            <!-- TWO-COLUMN ARTICLES -->
+            <div class="columns">
+                <div class="col-section">
+                    <article>
+                        <div class="category-label"><span class="date-chip">22. Feb</span>Sport: Olympia 2026</div>
+                        <h3>Winterspiele enden feierlich</h3>
+                        <p>Die Olympischen Winterspiele Milano-Cortina 2026 gingen am 22. Februar mit einer großen Schlussfeier in der Arena von Verona zu Ende. Starke Leistungen der deutschen Athletinnen und Athleten dominierten das sportliche Programm.</p>
+                    </article>
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">26. Feb</span>Mexiko</div>
+                        <h3>Kartell-Gewalt eskaliert nach Tod von &bdquo;El Mencho&ldquo;</h3>
+                        <p>Seit der Bestätigung, dass Kartellboss Nemesio Oseguera Cervantes getötet wurde, versinkt Mexiko in Chaos. Das <em>Cártel Jalisco Nueva Generación</em> reagiert mit brutalen Vergeltungsschlägen. Experten warnen vor einer weiteren Eskalation.</p>
+                    </article>
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">19. Feb</span>Skandal in England</div>
+                        <h3>Ehemaliger Prinz Andrew festgenommen</h3>
+                        <p>Der ehemalige Prinz Andrew wurde in London festgenommen. Ermittler werfen ihm vor, über Jahre hinweg sensible Daten an Jeffrey Epstein übermittelt zu haben.</p>
+                    </article>
+                </div>
+
+                <div class="col-section">
+                    <article>
+                        <div class="category-label"><span class="date-chip">20. Feb</span>CDU-Parteitag</div>
+                        <h3>Merz mit starkem Ergebnis bestätigt</h3>
+                        <p>Friedrich Merz bleibt der starke Mann der CDU. Auf dem Parteitag in Stuttgart erhielt er 91,17&nbsp;% der Stimmen und schloss eine Koalition mit der AfD erneut aus.</p>
+                    </article>
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">21. Feb</span>Programm</div>
+                        <h3>CDU setzt auf Kernenergie-Prüfung</h3>
+                        <p>Die CDU will Kernenergie wieder prüfen lassen, um die Energiepreise stabil zu halten. Zudem fordert das neue Programm strengere Regeln bei der Einwanderung.</p>
+                    </article>
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">23. Feb</span>EU-Parlament</div>
+                        <h3>Verschärfte Regeln für den Klimaschutz</h3>
+                        <p>Das Europäische Parlament hat neue Regeln beschlossen, um den CO₂-Ausstoß drastisch zu senken. Ziel ist die Unabhängigkeit von fossilen Brennstoffen bis 2045.</p>
+                    </article>
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">24. Feb</span>NATO</div>
+                        <h3>Großmanöver in Deutschland</h3>
+                        <p>Elf NATO-Partner trainieren die schnelle Verlegung von Truppen an die Ostgrenze — ein deutliches Signal der Verteidigungsbereitschaft.</p>
+                    </article>
+                </div>
+            </div>
+
         </div>
 
-        <div class="side-bar">
-            <h4>📊 Sonntagsfrage</h4>
-            <small>Quelle: Infratest dimap (Feb 2026)</small>
-            <table class="poll-table">
-                <tr><td>CDU/CSU</td><td>26 %</td></tr>
-                <tr><td>AfD</td><td>24 %</td></tr>
-                <tr><td>SPD</td><td>15 %</td></tr>
-                <tr><td>Grüne</td><td>12 %</td></tr>
-                <tr><td>Die Linke</td><td>10 %</td></tr>
-                <tr><td>FDP</td><td>3 %</td></tr>
-                <tr><td>BSW</td><td>3 %</td></tr>
-                <tr><td>Sonstige</td><td>7 %</td></tr>
-            </table>
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="sidebar-block">
+                <div class="sidebar-heading">Sonntagsfrage</div>
+                <small style="font-size:0.68rem; color:var(--muted); display:block; margin-bottom:10px;">Infratest dimap, Feb. 2026</small>
+                <div class="poll-row"><span class="poll-party">CDU/CSU</span><span class="poll-pct">26 %</span></div>
+                <div class="poll-row"><span class="poll-party">AfD</span><span class="poll-pct">24 %</span></div>
+                <div class="poll-row"><span class="poll-party">SPD</span><span class="poll-pct">15 %</span></div>
+                <div class="poll-row"><span class="poll-party">Grüne</span><span class="poll-pct">12 %</span></div>
+                <div class="poll-row"><span class="poll-party">Die Linke</span><span class="poll-pct">10 %</span></div>
+                <div class="poll-row"><span class="poll-party">FDP</span><span class="poll-pct">3 %</span></div>
+                <div class="poll-row"><span class="poll-party">BSW</span><span class="poll-pct">3 %</span></div>
+                <div class="poll-row"><span class="poll-party">Sonstige</span><span class="poll-pct">7 %</span></div>
+            </div>
 
-            <h4>☀️ Wetter Bonn</h4>
-            <p>🌡️ <b>8°C bis 18°C</b><br>Sonnig und mild.</p>
+            <div class="sidebar-block">
+                <div class="sidebar-heading">Wetter Bonn</div>
+                <div class="weather-info">
+                    <span class="weather-temp">8° – 18°C</span>
+                    ☀️ Sonnig und mild.<br>
+                    Ungewöhnlich warm für Februar.
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- QUIZ -->
     <section id="quiz-section">
-        <h3 style="text-align:center;">✙ DAS GROSSE WOCHEN-QUIZ (15 FRAGEN) ✙</h3>
-        <div id="quiz-start">
-            <button class="option-btn" onclick="startQuiz()" style="text-align:center; font-weight:bold; background:var(--ink); color:white;">JETZT QUIZ STARTEN</button>
+        <div class="quiz-header">
+            <h3>Das große Wochen-Quiz &mdash; 15 Fragen</h3>
         </div>
-        <div id="quiz-box" class="hidden">
-            <p id="questionText" style="font-weight:bold; font-size:1.2rem;"></p>
-            <div id="options"></div>
-            <p id="quiz-progress" style="font-size: 0.8rem; color: #666; margin-top: 15px;"></p>
-        </div>
-        <div id="quiz-result" class="hidden" style="text-align:center;">
-            <p id="finalScore" style="font-size: 1.6rem; font-weight:bold;"></p>
-            <p id="feedbackText"></p>
-            <button onclick="location.reload()" style="padding: 15px 30px; cursor:pointer; background:var(--ink); color:white; border:none; font-size: 1.1rem; border-radius: 4px;">Neu starten</button>
+        <div class="quiz-body">
+            <div id="quiz-start">
+                <button class="start-btn" onclick="startQuiz()">Jetzt Quiz starten</button>
+            </div>
+            <div id="quiz-box" class="hidden">
+                <p id="questionText"></p>
+                <div id="options"></div>
+                <p id="quiz-progress"></p>
+            </div>
+            <div id="quiz-result" class="hidden">
+                <p id="finalScore"></p>
+                <p id="feedbackText"></p>
+                <button class="restart-btn" onclick="location.reload()">Neu starten</button>
+            </div>
         </div>
     </section>
 
     <footer>
-        Die Tagespolitik – Dokumentation der Ereignisse vom 19.02. bis 27.02.2026. <br>
-        <b>Geschrieben von Pete und Roger.</b>
+        Die Tagespolitik &mdash; <strong>Pete und Roger</strong>
     </footer>
 </div>
 
@@ -191,72 +559,67 @@
         { q: "Welche Partei liegt in der aktuellen Sonntagsfrage mit 24 % auf Platz 2?", a: ["SPD", "Grüne", "AfD"], correct: "AfD" }
     ];
 
-    let quizQuestions = [];
-    let current = 0;
-    let score = 0;
+    let quizQuestions = [], current = 0, score = 0;
 
-    function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+            [arr[i], arr[j]] = [arr[j], arr[i]];
         }
-        return array;
+        return arr;
     }
 
-    function startQuiz() { 
+    function startQuiz() {
         quizQuestions = shuffle([...originalQuestions]);
         quizQuestions.forEach(q => shuffle(q.a));
-        document.getElementById('quiz-start').classList.add('hidden'); 
-        document.getElementById('quiz-box').classList.remove('hidden'); 
-        loadQ(); 
+        document.getElementById('quiz-start').classList.add('hidden');
+        document.getElementById('quiz-box').classList.remove('hidden');
+        loadQ();
     }
-    
+
     function loadQ() {
-        const q = quizQuestions[current]; 
+        const q = quizQuestions[current];
         document.getElementById('questionText').innerText = q.q;
-        document.getElementById('quiz-progress').innerText = "Frage " + (current + 1) + " von " + quizQuestions.length;
-        const container = document.getElementById('options'); 
-        container.innerHTML = "";
-        q.a.forEach((opt) => {
-            const btn = document.createElement('button'); 
-            btn.className = "option-btn"; 
+        document.getElementById('quiz-progress').innerText = `Frage ${current + 1} von ${quizQuestions.length}`;
+        const container = document.getElementById('options');
+        container.innerHTML = '';
+        q.a.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
             btn.innerText = opt;
-            btn.onclick = () => check(opt, btn); 
+            btn.onclick = () => check(opt, btn);
             container.appendChild(btn);
         });
     }
 
     function check(selectedText, btn) {
         const correctText = quizQuestions[current].correct;
-        const all = document.querySelectorAll('.option-btn');
-        all.forEach(b => b.disabled = true);
-        if(selectedText === correctText) { 
-            score++; 
+        document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+        if (selectedText === correctText) {
+            score++;
             btn.classList.add('btn-correct');
             setTimeout(next, 800);
-        } else { 
+        } else {
             btn.classList.add('btn-wrong');
-            all.forEach(b => { if(b.innerText === correctText) b.classList.add('btn-correct'); });
-            setTimeout(next, 1500); 
+            document.querySelectorAll('.option-btn').forEach(b => { if (b.innerText === correctText) b.classList.add('btn-correct'); });
+            setTimeout(next, 1500);
         }
     }
 
     function next() {
-        current++; 
-        if(current < quizQuestions.length) loadQ(); 
+        current++;
+        if (current < quizQuestions.length) loadQ();
         else showResult();
     }
 
     function showResult() {
         document.getElementById('quiz-box').classList.add('hidden');
         document.getElementById('quiz-result').classList.remove('hidden');
-        document.getElementById('finalScore').innerHTML = score + " von " + quizQuestions.length + " richtig!";
-        
-        let feedback = "";
-        if(score === 15) feedback = "Perfekt! Du bist ein absoluter Polit-Experte.";
-        else if(score > 10) feedback = "Sehr gut! Du hast die Woche aufmerksam verfolgt.";
-        else if(score > 5) feedback = "Nicht schlecht, aber da geht noch mehr.";
-        else feedback = "Vielleicht solltest du die Artikel noch einmal lesen?";
+        document.getElementById('finalScore').innerText = `${score} von ${quizQuestions.length} richtig!`;
+        const feedback = score === 15 ? "Perfekt! Du bist ein absoluter Polit-Experte."
+            : score > 10 ? "Sehr gut! Du hast die Woche aufmerksam verfolgt."
+            : score > 5 ? "Nicht schlecht, aber da geht noch mehr."
+            : "Vielleicht solltest du die Artikel noch einmal lesen?";
         document.getElementById('feedbackText').innerText = feedback;
     }
 </script>
