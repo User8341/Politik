@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIE TAGESPOLITIK | 26.02.2026</title>
+    <title>DIE TAGESPOLITIK | 26.02. – 6.03.2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
@@ -64,9 +64,7 @@
             color: var(--ink);
         }
 
-        .masthead-title span {
-            color: var(--accent);
-        }
+        .masthead-title span { color: var(--accent); }
 
         .masthead-rule {
             height: 1px;
@@ -229,14 +227,8 @@
         }
 
         .poll-row:last-child { border-bottom: none; }
-
         .poll-party { color: var(--ink-light); }
-
-        .poll-pct {
-            font-weight: 700;
-            color: var(--accent);
-            font-variant-numeric: tabular-nums;
-        }
+        .poll-pct { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 
         .weather-info {
             font-size: 0.88rem;
@@ -268,6 +260,29 @@
             text-transform: uppercase;
             color: var(--muted);
             white-space: nowrap;
+        }
+
+        /* ── WEEK BLOCK ── */
+        .week-block {
+            margin-bottom: 36px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .week-block:last-child { border-bottom: none; }
+
+        .week-label {
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            background: var(--ivory);
+            border: 1px solid var(--border);
+            display: inline-block;
+            padding: 3px 10px;
+            margin-bottom: 16px;
         }
 
         /* ── QUIZ ── */
@@ -319,11 +334,7 @@
             transition: border-color 0.15s, background 0.15s;
         }
 
-        .option-btn:hover:not(:disabled) {
-            border-color: var(--ink);
-            background: #f0ebe0;
-        }
-
+        .option-btn:hover:not(:disabled) { border-color: var(--ink); background: #f0ebe0; }
         .btn-correct { background: #d4edda !important; border-color: #28a745 !important; font-weight: 700; color: #155724 !important; }
         .btn-wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24 !important; }
 
@@ -409,11 +420,11 @@
         <div class="masthead-top">
             <span>Ausgabe Bonn</span>
             <span>Wochenanalyse</span>
-            <span>Donnerstag, 26. Februar 2026</span>
+            <span>6. März 2026</span>
         </div>
         <div class="masthead-title">Die <span>Tages</span>politik</div>
         <div class="masthead-rule"></div>
-        <div class="masthead-sub">Dokumentation der Ereignisse &middot; 19. bis 27. Februar 2026</div>
+        <div class="masthead-sub">Dokumentation der Ereignisse &middot; 19. Februar – 6. März 2026</div>
     </div>
 
     <!-- BODY -->
@@ -422,21 +433,20 @@
 
             <!-- FEATURED ARTICLE -->
             <div class="featured">
-                <div class="category-label"><span class="date-chip">25. Feb</span>Analyse: Der Iran-Konflikt</div>
+                <div class="category-label"><span class="date-chip">25. Feb</span>Analyse: Der Iran-Konflikt &nbsp;&middot;&nbsp; geschrieben von Pete</div>
                 <h3>Zwischen Atom-Abkommen und wirtschaftlicher Not</h3>
                 <p>Der Iran steht im Februar 2026 an einem historischen Wendepunkt. Seit Jahrzehnten sorgt das iranische Atom-Programm für Spannungen auf der ganzen Welt. Während die Regierung in Teheran betont, die Technologie ausschließlich für die zivile Energieversorgung und medizinische Forschung zu nutzen, befürchten westliche Geheimdienste den Bau einer Atombombe. Eine solche Bewaffnung würde das militärische Gleichgewicht im Nahen Osten massiv erschüttern.</p>
                 <p>Um den Iran zur Kooperation zu zwingen, wurden über Jahre hinweg harte Wirtschaftssanktionen verhängt. Diese Strafen haben den Alltag der Menschen drastisch verändert. Die Landeswährung hat massiv an Wert verloren, was zu einer explodierenden Inflation führt — einfache Lebensmittel, Medikamente und Mieten sind für viele Bürger kaum noch bezahlbar.</p>
                 <p>In dieser Woche blickt die Welt hoffnungsvoll nach Genf. In der Schweizer Stadt finden diplomatische Gespräche auf höchster Ebene statt. Das Ziel ist ein umfassender Vertrag: Der Iran soll seine Atomanlagen für internationale Kontrolleure der UN vollständig öffnen und die Anreicherung von Uran begrenzen.</p>
             </div>
 
-            <!-- SECTION DIVIDER -->
+            <!-- SECTION DIVIDER: Woche 1 -->
             <div class="section-divider">
                 <div class="section-divider-line"></div>
-                <div class="section-divider-title">Weitere Meldungen</div>
+                <div class="section-divider-title">19. – 26. Februar 2026 &nbsp;&middot;&nbsp; geschrieben von Pete</div>
                 <div class="section-divider-line"></div>
             </div>
 
-            <!-- TWO-COLUMN ARTICLES -->
             <div class="columns">
                 <div class="col-section">
                     <article>
@@ -485,21 +495,86 @@
                 </div>
             </div>
 
+            <!-- SECTION DIVIDER: Woche 2 -->
+            <div class="section-divider" style="margin-top: 36px;">
+                <div class="section-divider-line"></div>
+                <div class="section-divider-title">27. Februar – 6. März 2026 &nbsp;&middot;&nbsp; geschrieben von Roger</div>
+                <div class="section-divider-line"></div>
+            </div>
+
+            <div class="columns">
+                <div class="col-section">
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">27. Feb</span>Wirtschaft &amp; Technologie</div>
+                        <h3>KI als zentraler Wachstumstreiber der Berichtssaison 2026</h3>
+                        <p>Die Berichtssaison Anfang 2026 unterstreicht die dominierende Rolle der Künstlichen Intelligenz als Motor für die großen Technologiekonzerne. Besonders Infrastruktur-Anbieter und Cloud-Giganten profitieren von massiven Investitionen in KI-Systeme und rechnen mit anhaltend hoher Nachfrage.</p>
+                    </article>
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">1. Mär</span>Recht &amp; Gesellschaft</div>
+                        <h3>Neue Gesetze in Deutschland und der EU in Kraft</h3>
+                        <p>Zum Jahreswechsel 2026 treten in Deutschland und der EU zahlreiche neue Gesetze und Verordnungen in Kraft. Sie zielen insbesondere auf Klimaschutz, energetische Gebäudeoptimierung und die Digitalisierung des Alltags ab — und betreffen Millionen Bürgerinnen und Bürger direkt.</p>
+                    </article>
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">3. Mär</span>Geopolitik</div>
+                        <h3>Diplomatischer Hochdruck angesichts globaler Spannungen</h3>
+                        <p>Die geopolitische Lage Anfang 2026 ist von erheblichen Spannungen geprägt. Diplomaten arbeiten intensiv daran, Eskalationen in mehreren Konfliktherden zu verhindern. Eine Abnahme der globalen Stabilität treibt Regierungen weltweit zu engeren Konsultationen.</p>
+                    </article>
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">5. Mär</span>Klima &amp; Umwelt</div>
+                        <h3>Internationale Konferenzen im Zeichen des Klimaschutzes</h3>
+                        <p>Im März 2026 richten sich die Augen der Welt auf mehrere internationale Veranstaltungen, die sich auf Klimaschutz und nachhaltige Entwicklung konzentrieren. Regierungen und NGOs suchen verbindliche Vereinbarungen für das laufende Jahrzehnt.</p>
+                    </article>
+
+                </div>
+
+                <div class="col-section">
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">28. Feb</span>Finanzmärkte</div>
+                        <h3>Nervosität an den Weltbörsen zum Quartalsende</h3>
+                        <p>Zum Ende des ersten Quartals 2026 zeigen sich die weltweiten Börsen angesichts neuer Wirtschaftsdaten und geopolitischer Spannungen zunehmend nervös. Analysten warnen vor einer anhaltenden Unsicherheit, die Investitionsentscheidungen weltweit erschwert.</p>
+                    </article>
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">2. Mär</span>Energie</div>
+                        <h3>Erneuerbare Energien wachsen rasant – Ziele dennoch in Gefahr</h3>
+                        <p>Eine neue internationale Studie im Frühjahr 2026 bestätigt den rasanten Fortschritt beim Ausbau erneuerbarer Energien, warnt jedoch gleichzeitig: Ohne deutlich beschleunigte Maßnahmen werden die globalen Klimaziele bis 2030 verfehlt.</p>
+                    </article>
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">4. Mär</span>Digitalisierung</div>
+                        <h3>KI zwischen Produktivitätswunder und Regulierungsdruck</h3>
+                        <p>Die rasanten Entwicklungen bei generativen Modellen und agentenbasierten KI-Systemen prägen die gesellschaftliche Debatte 2026. Während KI als Treiber für Produktivität und Innovation gilt, stellen sich drängende Fragen zur Arbeitsplatzsicherheit, ethischen Verantwortung und Regulierung.</p>
+                    </article>
+
+                    <article>
+                        <div class="category-label"><span class="date-chip">6. Mär</span>Wochenbilanz</div>
+                        <h3>Experten: Gemischtes Bild zwischen Stabilisierung und Spannung</h3>
+                        <p>Die Expertenbilanz zum Ende der Woche zeigt ein gemischtes Bild: Eine langsame wirtschaftliche Stabilisierung trifft auf eine weiterhin angespannte politische und geopolitische Lage. Prognosen bleiben vorsichtig optimistisch, aber unsicher.</p>
+                    </article>
+
+                </div>
+            </div>
+
         </div>
 
         <!-- SIDEBAR -->
         <div class="sidebar">
             <div class="sidebar-block">
                 <div class="sidebar-heading">Sonntagsfrage</div>
-                <small style="font-size:0.68rem; color:var(--muted); display:block; margin-bottom:10px;">Infratest dimap, Feb. 2026</small>
-                <div class="poll-row"><span class="poll-party">CDU/CSU</span><span class="poll-pct">26 %</span></div>
+                <small style="font-size:0.68rem; color:var(--muted); display:block; margin-bottom:10px;">Ipsos, 27. Feb. – 1. Mär. 2026</small>
+                <div class="poll-row"><span class="poll-party">CDU/CSU</span><span class="poll-pct">25 %</span></div>
                 <div class="poll-row"><span class="poll-party">AfD</span><span class="poll-pct">24 %</span></div>
                 <div class="poll-row"><span class="poll-party">SPD</span><span class="poll-pct">15 %</span></div>
-                <div class="poll-row"><span class="poll-party">Grüne</span><span class="poll-pct">12 %</span></div>
-                <div class="poll-row"><span class="poll-party">Die Linke</span><span class="poll-pct">10 %</span></div>
-                <div class="poll-row"><span class="poll-party">FDP</span><span class="poll-pct">3 %</span></div>
+                <div class="poll-row"><span class="poll-party">Grüne</span><span class="poll-pct">14 %</span></div>
+                <div class="poll-row"><span class="poll-party">Die Linke</span><span class="poll-pct">11 %</span></div>
+                <div class="poll-row"><span class="poll-party">FDP</span><span class="poll-pct">4 %</span></div>
                 <div class="poll-row"><span class="poll-party">BSW</span><span class="poll-pct">3 %</span></div>
-                <div class="poll-row"><span class="poll-party">Sonstige</span><span class="poll-pct">7 %</span></div>
+                <div class="poll-row"><span class="poll-party">Sonstige</span><span class="poll-pct">4 %</span></div>
             </div>
 
             <div class="sidebar-block">
@@ -510,13 +585,25 @@
                     Ungewöhnlich warm für Februar.
                 </div>
             </div>
+
+            <div class="sidebar-block">
+                <div class="sidebar-heading">Themen der Woche</div>
+                <div style="font-size:0.82rem; line-height:1.8; color:var(--ink-light);">
+                    🤖 KI &amp; Technologie<br>
+                    📉 Börsenvolatilität<br>
+                    ⚖️ Neue EU-Gesetze<br>
+                    🌱 Erneuerbare Energien<br>
+                    🌍 Geopolitik<br>
+                    🏛️ Klimakonferenzen
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- QUIZ -->
     <section id="quiz-section">
         <div class="quiz-header">
-            <h3>Das große Wochen-Quiz &mdash; 15 Fragen</h3>
+            <h3>Das große Wochen-Quiz &mdash; 25 Fragen</h3>
         </div>
         <div class="quiz-body">
             <div id="quiz-start">
@@ -542,21 +629,34 @@
 
 <script>
     const originalQuestions = [
+        // === Woche 1: 19.–26. Feb ===
         { q: "Wo fand die Schlussfeier der Olympischen Winterspiele 2026 statt?", a: ["Mailand", "Cortina d'Ampezzo", "Verona"], correct: "Verona" },
-        { q: "Wann endeten die Winterspiele offiziell?", a: ["20. Februar", "22. Februar", "25. Februar"], correct: "22. Februar" },
+        { q: "Wann endeten die Winterspiele Milano-Cortina offiziell?", a: ["20. Februar", "22. Februar", "25. Februar"], correct: "22. Februar" },
         { q: "Welches Ergebnis erzielte Friedrich Merz auf dem CDU-Parteitag?", a: ["85,5 %", "91,17 %", "95,0 %"], correct: "91,17 %" },
         { q: "Welcher Ort war Schauplatz des CDU-Parteitags am 20. Februar?", a: ["Berlin", "München", "Stuttgart"], correct: "Stuttgart" },
-        { q: "Auf wie viel Prozent kommt die Union laut Infratest dimap (Feb 2026)?", a: ["24 %", "26 %", "32 %"], correct: "26 %" },
+        { q: "Auf wie viel Prozent kommt die Union laut Ipsos (Mär 2026)?", a: ["24 %", "25 %", "27 %"], correct: "25 %" },
         { q: "Welches Kartell sorgt in Mexiko nach dem Tod von 'El Mencho' für Gewalt?", a: ["Sinaloa-Kartell", "CJNG (Nueva Generación)", "Los Zetas"], correct: "CJNG (Nueva Generación)" },
         { q: "In welcher Schweizer Stadt finden die Atom-Verhandlungen mit dem Iran statt?", a: ["Zürich", "Bern", "Genf"], correct: "Genf" },
-        { q: "Was ist laut Analyse ein Hauptgrund für die Proteste im Iran?", a: ["Wassermangel", "Explodierende Inflation", "Religiöse Reformen"], correct: "Explodierende Inflation" },
+        { q: "Was ist laut Analyse ein Hauptgrund für die wirtschaftliche Not im Iran?", a: ["Wassermangel", "Explodierende Inflation", "Religiöse Reformen"], correct: "Explodierende Inflation" },
         { q: "Wie viele Partner nehmen am aktuellen NATO-Großmanöver teil?", a: ["5 Länder", "11 Länder", "28 Länder"], correct: "11 Länder" },
         { q: "Was fordert die CDU im neuen Programm bezüglich der Energiepolitik?", a: ["Sofortiger Kohleausstieg", "Prüfung der Kernenergie", "Verbot von Gasheizungen"], correct: "Prüfung der Kernenergie" },
-        { q: "Welches Jahr hat sich das EU-Parlament als Ziel für CO2-Unabhängigkeit gesetzt?", a: ["2035", "2045", "2050"], correct: "2045" },
+        { q: "Welches Jahr hat das EU-Parlament als Ziel für CO₂-Unabhängigkeit gesetzt?", a: ["2035", "2045", "2050"], correct: "2045" },
         { q: "Was wird dem ehemaligen Prinz Andrew konkret vorgeworfen?", a: ["Korruption", "Datenweitergabe an Jeffrey Epstein", "Steuerhinterziehung"], correct: "Datenweitergabe an Jeffrey Epstein" },
-        { q: "Welche Temperatur-Rekordmarke wird am 27. Februar in Bonn erwartet?", a: ["15 Grad", "18 Grad", "21 Grad"], correct: "18 Grad" },
+        { q: "Welche Temperatur-Rekordmarke wird in Bonn für Ende Februar erwartet?", a: ["15 Grad", "18 Grad", "21 Grad"], correct: "18 Grad" },
         { q: "Wer sind die Autoren der 'Tagespolitik'?", a: ["Max und Moritz", "Pete und Roger", "Tom und Jerry"], correct: "Pete und Roger" },
-        { q: "Welche Partei liegt in der aktuellen Sonntagsfrage mit 24 % auf Platz 2?", a: ["SPD", "Grüne", "AfD"], correct: "AfD" }
+        { q: "Welche Partei liegt in der aktuellen Sonntagsfrage mit 24 % auf Platz 2?", a: ["SPD", "Grüne", "AfD"], correct: "AfD" },
+
+        // === Woche 2: 27. Feb – 6. Mär ===
+        { q: "Was war laut Berichtssaison Anfang 2026 der dominierende Wachstumstreiber für Technologieunternehmen?", a: ["Elektromobilität", "Künstliche Intelligenz", "Quantencomputer"], correct: "Künstliche Intelligenz" },
+        { q: "Welche Art von Unternehmen profitieren besonders von den KI-Investitionen laut Berichtssaison?", a: ["Einzelhandelsketten", "Infrastruktur-Anbieter und Cloud-Giganten", "Automobilhersteller"], correct: "Infrastruktur-Anbieter und Cloud-Giganten" },
+        { q: "Warum zeigten sich die Weltbörsen Ende Februar 2026 nervös?", a: ["Neue Wirtschaftsdaten und geopolitische Spannungen", "Ein starkes Erdbeben in Asien", "Plötzliche Leitzinserhöhung der EZB"], correct: "Neue Wirtschaftsdaten und geopolitische Spannungen" },
+        { q: "Auf welche drei Bereiche zielen die neuen Gesetze in Deutschland und der EU ab, die Anfang 2026 in Kraft traten?", a: ["Rüstung, Bildung und Soziales", "Klimaschutz, Gebäudeoptimierung und Digitalisierung", "Gesundheit, Verkehr und Landwirtschaft"], correct: "Klimaschutz, Gebäudeoptimierung und Digitalisierung" },
+        { q: "Was zeigt die internationale Studie vom Frühjahr 2026 zum Thema erneuerbare Energien?", a: ["Alle Klimaziele werden erreicht", "Rasanter Ausbau, aber globale Ziele ohne Maßnahmen gefährdet", "Der Ausbau erneuerbarer Energien stagniert"], correct: "Rasanter Ausbau, aber globale Ziele ohne Maßnahmen gefährdet" },
+        { q: "Was prägt laut dem Artikel vom 3. März 2026 die geopolitische Lage?", a: ["Globale Entspannung nach Friedensverhandlungen", "Erhebliche Spannungen und Abnahme der globalen Stabilität", "Wirtschaftliches Wachstum in allen Regionen"], correct: "Erhebliche Spannungen und Abnahme der globalen Stabilität" },
+        { q: "Welche zwei KI-Typen werden im Artikel vom 4. März 2026 besonders hervorgehoben?", a: ["Robotik und autonomes Fahren", "Generative Modelle und agentenbasierte Systeme", "Spracherkennung und Bildverarbeitung"], correct: "Generative Modelle und agentenbasierte Systeme" },
+        { q: "Welches Thema steht im Mittelpunkt der internationalen Veranstaltungen im März 2026?", a: ["Digitale Infrastruktur", "Klimaschutz und nachhaltige Entwicklung", "Internationale Sicherheitspolitik"], correct: "Klimaschutz und nachhaltige Entwicklung" },
+        { q: "Wie beschreibt die Expertenbilanz vom 6. März 2026 die Gesamtlage?", a: ["Vollständige wirtschaftliche Erholung", "Gemischtes Bild aus Stabilisierung und anhaltender Spannung", "Schwere Rezession mit unklarer Perspektive"], correct: "Gemischtes Bild aus Stabilisierung und anhaltender Spannung" },
+        { q: "Wie lautet die Prognose der Experten zum Ende der Woche (6. März 2026)?", a: ["Stark pessimistisch", "Vorsichtig optimistisch, aber unsicher", "Klar positiv ohne Einschränkungen"], correct: "Vorsichtig optimistisch, aber unsicher" }
     ];
 
     let quizQuestions = [], current = 0, score = 0;
@@ -616,9 +716,10 @@
         document.getElementById('quiz-box').classList.add('hidden');
         document.getElementById('quiz-result').classList.remove('hidden');
         document.getElementById('finalScore').innerText = `${score} von ${quizQuestions.length} richtig!`;
-        const feedback = score === 15 ? "Perfekt! Du bist ein absoluter Polit-Experte."
-            : score > 10 ? "Sehr gut! Du hast die Woche aufmerksam verfolgt."
-            : score > 5 ? "Nicht schlecht, aber da geht noch mehr."
+        const feedback = score === 25 ? "Perfekt! Du bist ein absoluter Polit-Experte."
+            : score >= 20 ? "Hervorragend! Du hast beide Wochen aufmerksam verfolgt."
+            : score >= 15 ? "Sehr gut! Ein paar Details haben dich noch erwischt."
+            : score >= 10 ? "Nicht schlecht, aber da geht noch mehr."
             : "Vielleicht solltest du die Artikel noch einmal lesen?";
         document.getElementById('feedbackText').innerText = feedback;
     }
